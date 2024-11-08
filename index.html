@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megratronus Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+/* Fonts and basic settings */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1F57F6;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+}
+
+.hero-content {
+    animation: fadeIn 2s;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    animation: slideUp 3s ease-in-out;
+}
+
+.btn-warning, .btn-danger {
+    animation: bounce 2s infinite;
+}
+
+/* Image sizing for cards */
+.card-img-custom {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Contact Section */
+#contact {
+    width: 100%;
+}
+
+.animate-zoomIn {
+    animation: zoomIn 1.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flipIn {
+    0% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Megratronus Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#games">Juegos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#offers">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <header class="hero-section text-center text-black d-flex align-items-center justify-content-center" id="home">
+        <div class="hero-content">
+            <h1 class="animate-fadeIn">Bienvenido a Megratronus Store</h1>
+            <p class="animate-slideUp">¡Tu tienda de videojuegos de confianza!</p>
+            <a href="#games" class="btn btn-warning btn-lg animate-bounce">Compra Ahora</a>
+        </div>
+    </header>
+
+    <!-- Games Section -->
+    <section class="container my-5" id="games">
+        <h2 class="text-center animate-zoomIn">Nuestros Juegos</h2>
+        <div class="row text-center" id="game-list">
+            <!-- Las tarjetas de juegos se insertarán aquí mediante JavaScript -->
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="container my-5" id="offers">
+        <h2 class="text-center animate-zoomIn">Ofertas Especiales</h2>
+        <div class="row text-center" id="offer-list">
+            <!-- Las tarjetas de ofertas se insertarán aquí mediante JavaScript -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container-fluid bg-light py-5" id="contact">
+        <div class="container">
+            <h2 class="text-center animate-zoomIn mb-4">Contáctanos</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Enviar Mensaje</button>
+                    </form>
+                    <div id="form-message" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Megratronus Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Datos de muestra para juegos y ofertas
+const games = [
+    {
+        title: "Dragon Ball: Sparking! Zero",
+        description: "¡Libera tu potencial Saiyajin!",
+        image: "images/dragonball.jpg"
+    },
+    {
+        title: "Persona 3: Reloaded",
+        description: "Sumérgete en batallas por turnos.",
+        image: "images/persona.jpg"
+    },
+    {
+        title: "Metaphor: ReFantazio",
+        description: "Juegos de turnos otra vez.",
+        image: "images/metaphor.jpg"
+    }
+];
+
+const offers = [
+    {
+        title: "Descuento para universitarios",
+        description: "¡30% de descuento al presentar tu carnet universitario!",
+        image: "images/carnet.jpeg"
+    },
+    {
+        title: "Poster",
+        description: "¡Compra un producto auspiciador y llévate un poster del mismo!",
+        image: "images/poster.jpg"
+    },
+    {
+        title: "Remate",
+        description: "¡Llévate un remate, juegos de dudosa calidad a bajo precio, tengo una familia que alimentar!",
+        image: "images/oferta.jpg"
+    }
+];
+
+// Función para renderizar juegos
+function renderGames() {
+    const gameList = document.getElementById('game-list');
+    games.forEach(game => {
+        const card = `
+            <div class="col-md-4">
+                <div class="card animate-flipIn">
+                    <img src="${game.image}" class="card-img-top" alt="${game.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${game.title}</h5>
+                        <p class="card-text">${game.description}</p>
+                        <a href="#" class="btn btn-warning">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        gameList.innerHTML += card;
+    });
+}
+
+// Función para renderizar ofertas
+function renderOffers() {
+    const offerList = document.getElementById('offer-list');
+    offers.forEach(offer => {
+        const card = `
+            <div class="col-md-4">
+                <div class="card animate-flipIn">
+                    <img src="${offer.image}" class="card-img-top" alt="${offer.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${offer.title}</h5>
+                        <p class="card-text">${offer.description}</p>
+                        <a href="#" class="btn btn-danger">Obtener Oferta</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        offerList.innerHTML += card;
+    });
+}
+
+// Función para manejar la envío del formulario
+function handleFormSubmission(event) {
+    event.preventDefault(); // Prevenir el comportamiento de envío del formulario por defecto
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Mostrar un mensaje (puedes mejorar esto más)
+    const formMessage = document.getElementById('form-message');
+    formMessage.innerHTML = `<div class="alert alert-success">¡Gracias, ${name}! Tu mensaje ha sido enviado.</div>`;
+
+    // Limpiar los campos del formulario
+    document.getElementById('contact-form').reset();
+}
+
+// Escuchadores de eventos
+document.getElementById('contact-form').addEventListener('submit', handleFormSubmission);
+
+// Renderizar los juegos y ofertas al cargar la página
+renderGames();
+renderOffers();
+    </script>
+</body>
+
+</html>
